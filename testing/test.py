@@ -21,6 +21,12 @@ def math_exp(variant):
         # save all metrics to disk
         logger.dump_tabular()
         
+        # save an object that changes with t, such as model params, to disk
+        logger.save_itr_params(t, {})
+
+    # save an object that doesn't change with t to disk (one obj per exp)
+    # logger.save_extra_data({}, file_name='myfile.pkl', mode='pickle')
+        
     
 if __name__ == "__main__": 
     variants=dict(
@@ -37,6 +43,6 @@ if __name__ == "__main__":
             variant=variant,
             exp_prefix='test',
             mode='local',
-            snapshot_mode='gap_and_last',  # 'gap_and_last' saves every SNAPSHOT_GAP iterations and also the last; can also be 'all', 'last', 'gap', 'none'
+            snapshot_mode='gap_and_last',  # 'gap_and_last' saves params every SNAPSHOT_GAP iterations and also the last; can also be 'all', 'last', 'gap', 'none'
             snapshot_gap=3,
         )

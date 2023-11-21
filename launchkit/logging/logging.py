@@ -311,7 +311,7 @@ class Logger(object):
 
     def save_itr_params(self, itr, params):
         # params for backwards compatibility, not needed here since we're not dealing w torch models.
-        # TODO add other model params that need to be saved.
+        file_name = ""
         if self._snapshot_dir:
             if self._snapshot_mode == 'all':
                 file_name = osp.join(self._snapshot_dir, 'itr_%d.pkl' % itr)
@@ -323,12 +323,16 @@ class Logger(object):
                     file_name = osp.join(self._snapshot_dir, 'itr_%d.pkl' % itr)
             elif self._snapshot_mode == "gap_and_last":
                 if itr % self._snapshot_gap == 0:
-                    file_name = osp.join(self._snapshot_dir, 'itr_%d.pkl' % itr)
+                    with open(osp.join(self._snapshot_dir, 'itr_%d.pkl' % itr), "wb") as f:
+                        pickle.dump(params, f)
                 file_name = osp.join(self._snapshot_dir, 'params.pkl')
             elif self._snapshot_mode == 'none':
                 pass
             else:
                 raise NotImplementedError
+            if file_name:
+                with open(file_name, "wb") as f:
+                    pickle.dump(params, f)
 
 
 logger = Logger()
