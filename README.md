@@ -34,3 +34,5 @@ Install and check out [Doodad](https://github.com/justinjfu/doodad), used for la
 
 ## See also
 Check out [Viskit](https://github.com/vitchyr/viskit) for inspecting and visualizing results of hyperparameter sweeps. This launchkit saves experiment outputs in a way that is compatible with viskit.
+
+<img src="viskit_example.png" alt="Viskit data visualization" width="600"/>
