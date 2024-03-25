@@ -220,6 +220,9 @@ class Logger(object):
             import cloudpickle
             full_filename = file_name + ".cpkl"
             cloudpickle.dump(data, open(full_filename, "wb"))
+        elif mode == 'json':
+            with open(file_name, 'w') as f:
+                json.dump(data, f, indent=2, sort_keys=True, cls=MyEncoder)
         else:
             raise ValueError("Invalid mode: {}".format(mode))
         return file_name
