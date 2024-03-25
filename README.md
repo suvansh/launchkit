@@ -4,7 +4,7 @@ This repo aims to isolate the launching / hyperparameter sweep capabilities of [
 ## Getting started
 Clone this repo and add its root directory to your pythonpath.
 
-See the [testing/test.py](test) for example usage of launching an experiment with a hyperparameter sweep.
+See the [test](testing/test.py) for example usage of launching an experiment with a hyperparameter sweep.
 You will need to write an experiment function that accepts a dict of hyperparameter values and runs accordingly. Within this function, use
 - `logger.record_dict(metrics: dict)` to queue a dictionary of metrics to be saved to disk as a row in that experiment directory's `progress.csv` file. This dict typically includes a `time` or `epoch` value that increments.
 - `logger.dump_tabular()` every epoch to save the metrics to disk by adding a row to `progress.csv`.
