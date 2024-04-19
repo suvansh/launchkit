@@ -1,4 +1,4 @@
-# Launcher Util
+# LaunchKit
 This repo aims to isolate the launching / hyperparameter sweep capabilities of [RLKit's Launcher](https://github.com/rail-berkeley/rlkit/blob/master/rlkit/launchers/launcher_util.py). Consult this repository for further documentation and explanation of settings, some of which may not be used in this repo.
 
 ## Getting started
